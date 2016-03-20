@@ -31,7 +31,7 @@
             </div>
 
             <div id="actions">
-                <c:if test="${isLogIn and book ne null}">
+                <c:if test="${isLogIn}">
                     <a href="${pageContext.servletContext.contextPath}/controller?command=addBook&login=${login}&bookName=${book.name}">
                         Add book to my list
                     </a>
@@ -49,11 +49,11 @@
                     <h4>${removeMessage}</h4>
 
                     <form action="/downloader">
-                        <input type="hidden" name="path" value="${book.filePath}">
+                        <input type="hidden" name="bookName" value="${book.name}">
                         <input type="submit" value="Open/Download">
                     </form>
 
-
+                    <h5 style="color:darkred">${downloadError}</h5>
                 </c:if>
 
             </div>

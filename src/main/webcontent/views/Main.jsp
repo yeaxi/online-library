@@ -9,10 +9,10 @@
 </head>
 <body/>
 
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 100%; margin: 0 auto;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin: 150px;">
 
-    <div id="header"
-         style="background: #ccc; height: auto; vertical-align: middle; font-size:xx-large; font-weight: 300;">
+    <div align="center" id="header"
+         style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
         Online library
 
         <div id="search" style="align-content: center;  font-size:large; font-weight: 100;">

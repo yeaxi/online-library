@@ -17,7 +17,7 @@ import java.io.*;
  */
 public class AdminAddBook implements ActionCommand {
     private static final BookCache CACHE = BookCache.getInstance();
-    private static final String CONTEXT_PATH = ConfigurationManager.getProperty("path.resources.books");
+    private static final String ABSOLUTE_PATH = ConfigurationManager.getProperty("path.resources.books");
 
     public String execute(HttpServletRequest req) {
         String page;
@@ -58,7 +58,7 @@ public class AdminAddBook implements ActionCommand {
         File pdfFile = null;
         try {
             String pdfFileName = part.getSubmittedFileName();
-            pdfFile = new File(CONTEXT_PATH + pdfFileName);
+            pdfFile = new File(ABSOLUTE_PATH + pdfFileName);
             InputStream input = part.getInputStream();
             byte[] fileBytes = IOUtils.toByteArray(input);
             OutputStream outputStream = new FileOutputStream(pdfFile);

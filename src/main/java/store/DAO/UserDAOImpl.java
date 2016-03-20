@@ -73,7 +73,7 @@ class UserDAOImpl implements UserDAO {
         Session session = factory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.update(user);
+            session.merge(user);
         } finally {
             tx.commit();
             session.close();

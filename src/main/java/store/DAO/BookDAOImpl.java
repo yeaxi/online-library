@@ -58,7 +58,7 @@ class BookDAOImpl implements BookDAO {
         Session session = factory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.update(book);
+            session.merge(book);
         } finally {
             tx.commit();
             session.close();
