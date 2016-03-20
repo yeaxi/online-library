@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/library</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.c3p0.min_size">7</property>
+        <property name="hibernate.c3p0.max_size">53</property>
+        <property name="hibernate.c3p0.timeout">100</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">1000</property>
+        <property name="hibernate.c3p0.validate">true</property>
+
+
+        <!--<property name="connection.pool_size">10</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>-->
+
+
+        <mapping resource="models/Book.hbm.xml"/>
+        <mapping resource="models/User.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
