@@ -12,16 +12,18 @@
     <title>Library</title>
 </head>
 <body>
-<div style="background-color:#dddddd;  width: 100%; margin: 0 auto;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
     <div style=" display: block">
 
-        <div id="header"
-             style="background: #ccc; height: auto; align-content: center; vertical-align: middle; font-size:xx-large; font-weight: 300;">
+        <div align="center" id="header"
+             style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
 
             ${book.name}
         </div>
+
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
             <jsp:useBean id="book" class="models.Book" scope="session"/>
+
             <div id="about-book">
                 <p>
                     Author : ${book.author} <br>
@@ -55,26 +57,30 @@
 
                     <h5 style="color:darkred">${downloadError}</h5>
                 </c:if>
-
             </div>
         </div>
+
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-
+            <a href="${pageContext.servletContext.contextPath}/controller?command=showBooks">Main</a><br>
+            <c:set var="isLogIn" scope="session" value="${isLogIn}"/>
             <c:if test="${isLogIn}">
-
+                <c:set var="isAdmin" scope="session" value="${isAdmin}"/>
                 <c:if test="${isAdmin}">
                     <a href="${pageContext.servletContext.contextPath}/views/Admin.jsp">Add books</a><br>
                 </c:if>
 
+                <c:set var="login" scope="session" value="${login}"/>
                 <a href="${pageContext.servletContext.contextPath}/controller?command=AboutUser&login=${login}">My
                     books</a><br>
-
             </c:if>
 
-            <a href="${pageContext.servletContext.contextPath}controller?command=ShowBooks">Main</a>
+            <c:if test="${!isLogIn}">
+                <a href="${pageContext.servletContext.contextPath}/views/UserLogin.jsp">Log in</a> <br>
+                <a href="${pageContext.servletContext.contextPath}/views/UserSignUp.jsp">Sign up</a><br>
+            </c:if>
         </div>
     </div>
 </div>
-</div>
+
 </body>
 </html>

@@ -9,18 +9,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Log in</title>
 </head>
 <body>
-<table border="2" width="100%">
-    <tr>
-        <td colspan="3">
-            <h1>Logging in</h1>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+    <div style=" display: block">
 
+        <div align="center" id="header"
+             style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
+            Logging in
+        </div>
+
+        <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
             <form action="${pageContext.servletContext.contextPath}/controller" method="POST">
                 <input type="hidden" name="command" value="Login"/>
                 <label for="login">Login</label>
@@ -30,13 +30,13 @@
                 <input type="submit" name="submit" value="Log in"><br>
 
                 <p style="color:darkred;">${errorLoginPassMessage}</p>
-
             </form>
-        </td>
-        <td width="200" valign="top" align="left">
-            <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a>
-        </td>
-    </tr>
-</table>
+        </div>
+
+        <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
+            <a href="${pageContext.servletContext.contextPath}/controller?command=showBooks">Main</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

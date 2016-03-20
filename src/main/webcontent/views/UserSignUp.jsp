@@ -5,20 +5,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
-
+    <title>Sign up</title>
 </head>
 <body>
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+    <div style=" display: block">
 
-<body>
-<table border="2" width="100%">
-    <tr>
-        <td colspan="3">
-            <h1>Signing up</h1>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
+        <div align="center" id="header"
+             style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
+            Signing up
+        </div>
+
+        <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
 
             <form action="${pageContext.servletContext.contextPath}/controller" method="POST">
                 <input type="hidden" name="command" value="SignUp"/>
@@ -32,13 +30,15 @@
 
 
             </form>
-        </td>
-        <td width="200" valign="top" align="left">
+        </div>
+
+        <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
+
             <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
             <a href="${pageContext.servletContext.contextPath}/views/UserLogin.jsp">Log in</a>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 </body>
 
 

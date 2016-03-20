@@ -9,7 +9,7 @@
 </head>
 <body/>
 
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin: 150px;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
 
     <div align="center" id="header"
          style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
