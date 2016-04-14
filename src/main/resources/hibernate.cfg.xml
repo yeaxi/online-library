@@ -16,13 +16,12 @@
         <property name="hibernate.c3p0.idle_test_period">1000</property>
         <property name="hibernate.c3p0.validate">true</property>
 
+        <property name="connection.pool_size">10</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
-        <!--<property name="connection.pool_size">10</property>
-        <property name="hibernate.enable_lazy_load_no_trans">true</property>-->
 
-
-        <mapping resource="models/Book.hbm.xml"/>
-        <mapping resource="models/User.hbm.xml"/>
+        <mapping class="ua.dudka.models.Book"/>
+        <mapping class="ua.dudka.models.User"/>
 
     </session-factory>
 </hibernate-configuration>
