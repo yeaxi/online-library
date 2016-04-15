@@ -25,9 +25,7 @@ public class BookDAOImplTest {
     public void testGetBooks() throws Exception {
         Collection<Book> books = bookDAO.getBooks();
         for (Book book : books) {
-            System.out.println(book.getName());
-            System.out.println(book.getAuthor());
-            System.out.println(book.getGenre());
+            System.out.println(book.getName() + " " + book.getAuthor() + " " + book.getGenre());
         }
 
     }
@@ -45,7 +43,7 @@ public class BookDAOImplTest {
     @Test
     public void testGetBooksByUser() throws Exception {
 
-        User user = Storage.userDAO.getUser(3);
+        User user = Storage.userDAO.getUser(4);
         Collection<Book> booksByUser = bookDAO.getBooksByUser(user);
         for (Book book : booksByUser) {
             System.out.println(book.getName());
@@ -57,5 +55,6 @@ public class BookDAOImplTest {
 
     @Test
     public void testUpdateBook() throws Exception {
+
     }
 }

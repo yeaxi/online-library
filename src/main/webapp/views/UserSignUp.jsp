@@ -24,7 +24,7 @@
                 <input type="text" id="login" name="login"><br>
                 <label for="password">Enter your password:</label>
                 <input type="password" id="password" name="password"><br>
-                <input type="submit" name="submit" value="Зарегестрироваться"><br>
+                <input type="submit" name="submit" value="Sign up"><br>
 
                 <p style="color:darkred">${errorSignUp}</p>
 

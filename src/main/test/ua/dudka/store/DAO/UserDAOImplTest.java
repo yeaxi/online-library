@@ -1,8 +1,6 @@
 package ua.dudka.store.DAO;
 
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import ua.dudka.models.User;
@@ -21,14 +19,15 @@ public class UserDAOImplTest {
     }
 
 
-
     @Test
     public void testAddUser() throws Exception {
-
         User user = new User("admin", "password");
+        if (!userDAO.contains("admin")) {
+            userDAO.addUser(user);
+        }
+
         User required = userDAO.getUser("admin");
         assertEquals("password", required.getPassword());
-        userDAO.close();
     }
 
     @Test
@@ -36,8 +35,6 @@ public class UserDAOImplTest {
         User user = userDAO.getUser("admin");
         assertEquals("admin", user.getLogin());
         assertEquals("password", user.getPassword());
-
-        userDAO.close();
 
     }
 
@@ -48,5 +45,24 @@ public class UserDAOImplTest {
         userDAO.updateUser(user);
         User required = userDAO.getUser("admin");
         assertEquals(1, required.getBooks().size());
+    }
+
+    @Test
+    public void getAllUsers() throws Exception {
+        for (User user : userDAO.getAllUsers()) {
+            System.out.println(user.getLogin());
+        }
+
+    }
+
+    @Test
+    public void getUserById() throws Exception {
+        User user = userDAO.getUser(8);
+        assertEquals("admin", user.getLogin());
+    }
+
+    @Test
+    public void updateUser() throws Exception {
+
     }
 }

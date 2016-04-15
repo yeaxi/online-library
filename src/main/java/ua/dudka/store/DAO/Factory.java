@@ -12,7 +12,7 @@ class Factory {
     public final BookDAO bookDAO;
 
     @Autowired
-    public Factory(UserDAOImpl userDAO, BookDAOImpl bookDAO) {
+    public Factory(UserDAO userDAO, BookDAO bookDAO) {
         this.userDAO = userDAO;
         this.bookDAO = bookDAO;
     }

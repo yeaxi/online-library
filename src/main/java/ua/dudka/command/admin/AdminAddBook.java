@@ -17,7 +17,6 @@ import java.io.*;
  */
 public class AdminAddBook implements ActionCommand {
     private static final BookCache CACHE = BookCache.getInstance();
-    private static final String ABSOLUTE_PATH = ConfigurationManager.getProperty("path.resources.books");
 
     public String execute(HttpServletRequest req) {
         String page;
@@ -38,7 +37,7 @@ public class AdminAddBook implements ActionCommand {
         String author = req.getParameter("author");
         String genre = req.getParameter("genre");
         String description = req.getParameter("description");
-        Part filePart = null;
+        Part filePart;
         try {
             filePart = req.getPart("file");
         } catch (IOException | ServletException e) {

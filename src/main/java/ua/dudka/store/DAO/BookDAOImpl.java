@@ -1,93 +1,53 @@
 package ua.dudka.store.DAO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ua.dudka.models.Book;
 import ua.dudka.models.User;
-import org.hibernate.*;
-import ua.dudka.store.util.HibernateUtil;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by RASTA on 15.03.2016.
  */
 @Repository
 class BookDAOImpl implements BookDAO {
-    private final SessionFactory factory;
+    private final HibernateTemplate template;
 
-    public BookDAOImpl() {
-        factory = HibernateUtil.getSessionFactory();
+    @Autowired
+    public BookDAOImpl(final HibernateTemplate hibernateTemplate) {
+        this.template = hibernateTemplate;
     }
 
     public Collection<Book> getBooks() {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            return session.createQuery("from Book").list();
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        return template.loadAll(Book.class);
     }
 
     public Collection getBooksByUser(User user) {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            Integer user_id = user.getId();
-            Query query = session.createQuery("" +
-                    "select b from Book  b INNER JOIN b.users user where user.id=:userId").setInteger("userId", user_id);
-            return (List<Book>) query.list();
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        return template.find("select b from Book  b INNER JOIN b.users user where user.id=?", user.getId());
+
     }
 
+    @Transactional
     public void addBook(Book book) {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            session.save(book);
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        template.save(book);
     }
 
+    @Transactional
     public void updateBook(Book book) {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            session.merge(book);
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        template.update(book);
+
     }
 
+    @Transactional
     public void deleteBook(Book book) {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            session.delete(book);
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        template.delete(book);
     }
 
     public Book getBook(String bookName) {
-        Session session = factory.openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            Query query = session.createQuery("from Book as book where book.name=:name").setString("name", bookName);
-            return (Book) query.iterate().next();
-        } finally {
-            tx.commit();
-            session.close();
-        }
+        return (Book) template.find("from Book as b where b.name=?", bookName).get(0);
     }
 }
 

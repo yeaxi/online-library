@@ -19,7 +19,5 @@ public interface UserDAO {
 
     Collection<User> getAllUsers();
 
-    void close();
-
     boolean contains(String login);
 }
