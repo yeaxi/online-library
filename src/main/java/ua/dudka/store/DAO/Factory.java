@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * Created by RASTA on 15.03.2016.
  */
 @Service
-class Factory {
+public class Factory {
     public final UserDAO userDAO;
     public final BookDAO bookDAO;
 

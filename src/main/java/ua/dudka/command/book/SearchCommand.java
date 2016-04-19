@@ -3,8 +3,7 @@ package ua.dudka.command.book;
 import ua.dudka.command.ActionCommand;
 import ua.dudka.managers.ConfigurationManager;
 import ua.dudka.managers.MessageManager;
-import ua.dudka.models.Book;
-import ua.dudka.store.cache.BookCache;
+import ua.dudka.beans.Book;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
@@ -14,36 +13,36 @@ import java.util.Set;
  * Created by RASTA on 18.03.2016.
  */
 public class SearchCommand implements ActionCommand {
-    private static final BookCache CACHE = BookCache.getInstance();
-    private static Set<Book> books = CACHE.getBooks();
+//    private static final BookCache CACHE = BookCache.getInstance();
+//    private static Set<Book> books = CACHE.getBooks();
 
     private static Set<Book> findByName(String bookName) {
         Set<Book> result = new HashSet<>();
-        for (Book book : books) {
+        /*for (Book book : books) {
             if (book.getName().equals(bookName)) {
                 result.add(book);
             }
-        }
+        }*/
         return result;
     }
 
     private static Set<Book> findByGenre(String bookName) {
         Set<Book> result = new HashSet<>();
-        for (Book book : books) {
+       /* for (Book book : books) {
             if (book.getGenre().equals(bookName)) {
                 result.add(book);
             }
-        }
+        }*/
         return result;
     }
 
     private static Set<Book> findByAuthor(String bookName) {
         Set<Book> result = new HashSet<>();
-        for (Book book : books) {
+      /*  for (Book book : books) {
             if (book.getAuthor().equals(bookName)) {
                 result.add(book);
             }
-        }
+        }*/
         return result;
     }
 

@@ -1,6 +1,6 @@
 package ua.dudka.store.DAO;
 
-import ua.dudka.models.User;
+import ua.dudka.beans.User;
 
 import java.util.Collection;
 

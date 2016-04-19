@@ -2,8 +2,8 @@ package ua.dudka.store.DAO;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ua.dudka.models.Book;
-import ua.dudka.models.User;
+import ua.dudka.beans.Book;
+import ua.dudka.beans.User;
 
 import java.util.Collection;
 
@@ -32,8 +32,7 @@ public class BookDAOImplTest {
 
     @Test
     public void testAddBook() throws Exception {
-        Book book = new Book("myBook", "me");
-        book.setGenre("novel");
+        Book book = new Book("myBook", "me", "novel");
         bookDAO.addBook(book);
         Book required = bookDAO.getBook("myBook");
         assertEquals("novel", required.getGenre());

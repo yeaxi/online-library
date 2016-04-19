@@ -3,7 +3,7 @@ package ua.dudka.command;
 import ua.dudka.command.user.AboutUserCommand;
 import org.junit.Test;
 import org.mockito.Mockito;
-import ua.dudka.models.Book;
+import ua.dudka.beans.Book;
 
 import javax.servlet.http.HttpServletRequest;
 

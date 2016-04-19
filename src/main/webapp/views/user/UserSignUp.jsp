@@ -8,7 +8,7 @@
     <title>Sign up</title>
 </head>
 <body>
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 65%; margin:0 350px 0 350px;">
     <div style=" display: block">
 
         <div align="center" id="header"
@@ -35,7 +35,7 @@
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
             <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
-            <a href="${pageContext.servletContext.contextPath}/views/UserLogin.jsp">Log in</a>
+            <a href="${pageContext.servletContext.contextPath}/views/user/UserLogin.jsp">Log in</a>
         </div>
     </div>
 </div>

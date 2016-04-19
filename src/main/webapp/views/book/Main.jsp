@@ -9,7 +9,7 @@
 </head>
 <body/>
 
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 65%; margin:0 350px 0 350px;">
 
     <div align="center" id="header"
          style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
@@ -31,8 +31,8 @@
             <p style="color:black">${searchResult}</p>
             <c:set var="result" scope="application" value="${findResult}"/>
 
-            <c:forEach items="${result}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/controller?command=aboutBook&bookName=${book.toString()}">${book.toString()}</a>
+            <c:forEach items="${books}" var="book" varStatus="status">
+                <a href="${pageContext.servletContext.contextPath}/book/about?book=${book}">${book.toString()}</a>
                 <br>
             </c:forEach>
         </div>
@@ -43,7 +43,7 @@
         <c:set var="books" scope="application" value="${books}"/>
 
         <c:forEach items="${books}" var="book" varStatus="status">
-            <a href="${pageContext.servletContext.contextPath}/controller?command=aboutBook&bookName=${book.toString()}">${book.toString()}</a>
+            <a href="${pageContext.servletContext.contextPath}/book/about?book=${book}">${book.toString()}</a>
             <br>
             <hr>
         </c:forEach>
@@ -54,18 +54,18 @@
         <c:if test="${isLogIn}">
             <c:set var="isAdmin" scope="session" value="${isAdmin}"/>
             <c:if test="${isAdmin}">
-                <a href="${pageContext.servletContext.contextPath}/views/Admin.jsp">Add books</a><br>
+                <a href="${pageContext.servletContext.contextPath}/views/admin/Admin.jsp">Add books</a><br>
             </c:if>
 
             <c:set var="login" scope="session" value="${login}"/>
             <a href="${pageContext.servletContext.contextPath}/controller?command=AboutUser&login=${login}">My
-                books</a><br>
+                profile</a><br>
             <a href="${pageContext.servletContext.contextPath}/controller?command=Logout">Log out</a><br>
         </c:if>
 
         <c:if test="${!isLogIn}">
-            <a href="${pageContext.servletContext.contextPath}/views/UserLogin.jsp">Log in</a> <br>
-            <a href="${pageContext.servletContext.contextPath}/views/UserSignUp.jsp">Sign up</a><br>
+            <a href="${pageContext.servletContext.contextPath}/views/user/UserLogin.jsp">Log in</a> <br>
+            <a href="${pageContext.servletContext.contextPath}/views/user/UserSignUp.jsp">Sign up</a><br>
         </c:if>
     </div>
 </div>

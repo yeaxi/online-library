@@ -1,8 +1,7 @@
-package ua.dudka.models;
+package ua.dudka.beans;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -10,13 +9,13 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "books")
-public class Book implements Serializable {
+public class Book implements Serializable, Comparable<Book> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id")
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @Column(name = "author")
@@ -34,9 +33,10 @@ public class Book implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "books")
     private Set<User> users;
 
-    public Book(String name, String author) {
+    public Book(String name, String author, String genre) {
         this.name = name;
         this.author = author;
+        this.genre = genre;
     }
 
     public Book() {
@@ -123,4 +123,8 @@ public class Book implements Serializable {
     }
 
 
+    @Override
+    public int compareTo(Book o) {
+        return this.getName().compareTo(o.getName());
+    }
 }

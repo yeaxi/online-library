@@ -12,7 +12,7 @@
     <title>Log in</title>
 </head>
 <body>
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 65%; margin:0 350px 0 350px;">
     <div style=" display: block">
 
         <div align="center" id="header"

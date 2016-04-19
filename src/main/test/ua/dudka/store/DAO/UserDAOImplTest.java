@@ -3,7 +3,7 @@ package ua.dudka.store.DAO;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ua.dudka.models.User;
+import ua.dudka.beans.User;
 
 import static org.junit.Assert.*;
 

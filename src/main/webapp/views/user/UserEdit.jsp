@@ -1,10 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8" session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: RASTA
-  Date: 14.03.2016
-  Time: 12:12
+  Date: 19.04.2016
+  Time: 11:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,18 +12,26 @@
     <title></title>
 </head>
 <body>
-<div style=" display:block; background-color:#dddddd; font-size:large;  width: 80%; margin:0 150px 0 150px;">
+<div style=" display:block; background-color:#dddddd; font-size:large;  width: 65%; margin:0 350px 0 350px;">
     <div style=" display: block">
-
         <div align="center" id="header"
              style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
-            My books
+            Library
         </div>
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
 
-            <c:set var="books" scope="session" value="books"/>
-            <c:forEach items="${books}" var="book" varStatus="status">
+            <div id="info" style="width: 100%">
+                <jsp:useBean id="user" class="ua.dudka.beans.User" scope="session"/>
+                <h4>${user.name} ${user.surname}</h4>
+                <h5>Age: ${user.age}</h5>
+                <h5>Sex: ${user.sex}</h5>
+                <h5>Email: ${user.email}</h5>
+                <hr>
+                <a href="/controller?command=userEdit&login=${user.login}">Edit</a>
+            </div>
+
+            <c:forEach items="${user.books}" var="book" varStatus="status">
                 <a href="${pageContext.servletContext.contextPath}/controller?command=AboutBook&bookName=${book}">${book}</a>
                 <hr>
             </c:forEach>

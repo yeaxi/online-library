@@ -20,8 +20,8 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 
-        <mapping class="ua.dudka.models.Book"/>
-        <mapping class="ua.dudka.models.User"/>
+        <mapping class="ua.dudka.beans.Book"/>
+        <mapping class="ua.dudka.beans.User"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<c:redirect url="${pageContext.servletContext.contextPath}/controller?command=ShowBooks"/>
-
+<c:redirect url="${pageContext.servletContext.contextPath}/book/showAll"/>
 </body>
 </html>
