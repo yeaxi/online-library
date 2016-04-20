@@ -12,14 +12,15 @@
         <intercept-url pattern="/view/admin/**" access="hasRole('ADMIN')"/>
         <intercept-url pattern="/views/user/**" access="hasAnyRole('ADMIN, USER')"/>
 
+        <logout logout-url="/g"
         <form-login
                 login-page="/views/general/Login.jsp"
+                login-processing-url="/views/login"
                 default-target-url="/views/index.jsp"
                 username-parameter="login"
                 password-parameter="password"
                 always-use-default-target="true"
                 authentication-failure-url="/views/general/Login.jsp?error=invalidLoginPassword"/>
-        <logout logout-success-url="/login?logout"/>
         <csrf disabled="true"/>
 
         <remember-me user-service-ref="userService" key="key"/>

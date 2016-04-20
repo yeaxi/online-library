@@ -11,6 +11,8 @@ import ua.dudka.beans.User;
 import ua.dudka.managers.MessageManager;
 import ua.dudka.store.DAO.Factory;
 
+import javax.servlet.ServletRequest;
+
 /**
  * Created by RASTA on 19.04.2016.
  */
@@ -40,6 +42,7 @@ public class UserController {
         }
         return resp;
     }
+
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String editUser(@ModelAttribute User user, ModelMap map) {

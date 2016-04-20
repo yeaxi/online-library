@@ -16,7 +16,7 @@
         Online library
 
         <div id="search" style="align-content: center;  font-size:large; font-weight: 100;">
-            <form action="${pageContext.servletContext.contextPath}/book/search" method="get">
+            <form action="${pageContext.servletContext.contextPath}/general/search" method="get">
                 <select size="1" name="by">
                     <option disabled>Search by</option>
                     <option value="bookName">BookName</option>
@@ -30,7 +30,7 @@
             <p style="color:black">${searchResult}</p>
 
             <c:forEach items="${result}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/book/about?book=${book}">${book.toString()}</a>
+                <a href="${pageContext.servletContext.contextPath}/general/about?book=${book}">${book.toString()}</a>
                 <br>
             </c:forEach>
         </div>
@@ -40,7 +40,7 @@
         <c:set var="books" scope="application" value="${books}"/>
 
         <c:forEach items="${books}" var="book" varStatus="status">
-            <a href="${pageContext.servletContext.contextPath}/book/about?book=${book}">${book.toString()}</a>
+            <a href="${pageContext.servletContext.contextPath}/general/about?book=${book}">${book.toString()}</a>
             <br>
             <hr>
         </c:forEach>

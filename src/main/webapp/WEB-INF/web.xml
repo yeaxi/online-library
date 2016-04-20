@@ -8,6 +8,7 @@
         <welcome-file>/views/index.jsp</welcome-file>
     </welcome-file-list>
 
+    <!--START: Spring Web-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -15,8 +16,6 @@
             classpath:spring-security.xml
         </param-value>
     </context-param>
-
-    <!---->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -36,8 +35,10 @@
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
+    <!--END: Spring Web-->
 
     <!-- START: Spring Security-->
     <filter>
