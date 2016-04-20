@@ -17,6 +17,8 @@ public interface UserDAO {
 
     User getUser(String login);
 
+    User findByAuth(String login, String pass);
+
     Collection<User> getAllUsers();
 
     boolean contains(String login);

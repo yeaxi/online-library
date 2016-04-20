@@ -3,6 +3,7 @@ package ua.dudka.store.DAO;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import ua.dudka.beans.Role;
 import ua.dudka.beans.User;
 
 import static org.junit.Assert.*;
@@ -21,13 +22,13 @@ public class UserDAOImplTest {
 
     @Test
     public void testAddUser() throws Exception {
-        User user = new User("admin", "password");
-        if (!userDAO.contains("admin")) {
+        User user = new User("test", "test");
+        user.setRole(Role.USER);
             userDAO.addUser(user);
-        }
 
-        User required = userDAO.getUser("admin");
-        assertEquals("password", required.getPassword());
+        User required = userDAO.getUser("test");
+        assertEquals("test", required.getPassword());
+        assertEquals(Role.USER, required.getRole());
     }
 
     @Test
@@ -35,6 +36,7 @@ public class UserDAOImplTest {
         User user = userDAO.getUser("admin");
         assertEquals("admin", user.getLogin());
         assertEquals("password", user.getPassword());
+        assertEquals(Role.USER, user.getRole());
 
     }
 

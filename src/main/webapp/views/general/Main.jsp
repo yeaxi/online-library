@@ -16,8 +16,7 @@
         Online library
 
         <div id="search" style="align-content: center;  font-size:large; font-weight: 100;">
-            <form action="${pageContext.servletContext.contextPath}/controller" method="POST">
-                <input type="hidden" name="command" value="search">
+            <form action="${pageContext.servletContext.contextPath}/book/search" method="get">
                 <select size="1" name="by">
                     <option disabled>Search by</option>
                     <option value="bookName">BookName</option>
@@ -29,15 +28,13 @@
 
             </form>
             <p style="color:black">${searchResult}</p>
-            <c:set var="result" scope="application" value="${findResult}"/>
 
-            <c:forEach items="${books}" var="book" varStatus="status">
+            <c:forEach items="${result}" var="book" varStatus="status">
                 <a href="${pageContext.servletContext.contextPath}/book/about?book=${book}">${book.toString()}</a>
                 <br>
             </c:forEach>
         </div>
     </div>
-
 
     <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
         <c:set var="books" scope="application" value="${books}"/>
@@ -58,14 +55,14 @@
             </c:if>
 
             <c:set var="login" scope="session" value="${login}"/>
-            <a href="${pageContext.servletContext.contextPath}/controller?command=AboutUser&login=${login}">My
+            <a href="${pageContext.servletContext.contextPath}/user/profile">My
                 profile</a><br>
-            <a href="${pageContext.servletContext.contextPath}/controller?command=Logout">Log out</a><br>
+            <a href="${pageContext.servletContext.contextPath}/us">Log out</a><br>
         </c:if>
 
         <c:if test="${!isLogIn}">
-            <a href="${pageContext.servletContext.contextPath}/views/user/UserLogin.jsp">Log in</a> <br>
-            <a href="${pageContext.servletContext.contextPath}/views/user/UserSignUp.jsp">Sign up</a><br>
+            <a href="${pageContext.servletContext.contextPath}/views/general/Login.jsp">Log in</a> <br>
+            <a href="${pageContext.servletContext.contextPath}/views/general/SignUp.jsp">Sign up</a><br>
         </c:if>
     </div>
 </div>

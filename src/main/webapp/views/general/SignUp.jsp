@@ -35,7 +35,7 @@
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
             <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
-            <a href="${pageContext.servletContext.contextPath}/views/user/UserLogin.jsp">Log in</a>
+            <a href="${pageContext.servletContext.contextPath}/views/book/Login.jsp">Log in</a>
         </div>
     </div>
 </div>

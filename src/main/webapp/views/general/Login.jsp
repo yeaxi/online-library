@@ -21,20 +21,26 @@
         </div>
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
-            <form action="${pageContext.servletContext.contextPath}/controller" method="POST">
-                <input type="hidden" name="command" value="Login"/>
+            <form action="login" method="POST">
+                <input type="hidden" name="_spring_security_remember_me" value="true"/>
+
                 <label for="login">Login</label>
                 <input type="text" id="login" name="login"><br>
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"><br>
+
                 <input type="submit" name="submit" value="Log in"><br>
 
-                <p style="color:darkred;">${errorLoginPassMessage}</p>
+                <c:if test="${param.error=='invalidLoginPassword'}">
+                    <p style="color:darkred;"> Invalid login or password. Please check and try again</p>
+                </c:if>
+
             </form>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-            <a href="${pageContext.servletContext.contextPath}/controller?command=showBooks">Main</a>
+            <a href="${pageContext.servletContext.contextPath}/general/showAll">Main</a>
         </div>
     </div>
 </div>

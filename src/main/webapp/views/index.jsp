@@ -13,6 +13,6 @@
 </head>
 <body>
 
-<c:redirect url="${pageContext.servletContext.contextPath}/book/showAll"/>
+<c:redirect url="${pageContext.servletContext.contextPath}/general/showAll"/>
 </body>
 </html>

@@ -38,6 +38,11 @@ class UserDAOImpl implements UserDAO {
         return (User) template.find("from User as u where u.login=?", login).get(0);
     }
 
+    @Override
+    public User findByAuth(String login, String pass) {
+        return (User) template.find("from User  as u where  u.login=? and  u.password =?", login, pass).get(0);
+    }
+
     @Transactional
     public void updateUser(User user) {
         template.update(user);

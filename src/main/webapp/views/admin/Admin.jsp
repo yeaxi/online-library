@@ -58,8 +58,8 @@
             </c:if>
 
             <c:if test="${!isLogIn}">
-                <a href="${pageContext.servletContext.contextPath}/views/user/UserLogin.jsp">Log in</a> <br>
-                <a href="${pageContext.servletContext.contextPath}/views/user/UserSignUp.jsp">Sign up</a><br>
+                <a href="${pageContext.servletContext.contextPath}/views/book/Login.jsp">Log in</a> <br>
+                <a href="${pageContext.servletContext.contextPath}/views/book/SignUp.jsp">Sign up</a><br>
             </c:if>
         </div>
     </div>
