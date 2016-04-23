@@ -21,13 +21,18 @@ public class AdminController {
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
     public String addBook(@ModelAttribute Book book) {
         factory.bookDAO.addBook(book);
-        return "/book/Main";
+        return "/general/Main";
     }
 
     @RequestMapping(value = "/editBook", method = RequestMethod.GET)
     public String editBook(@ModelAttribute Book book) {
         factory.bookDAO.updateBook(book);
-        return "/book/AboutBook";
+        return "/general/AboutBook";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "/admin/Admin";
     }
 
 }

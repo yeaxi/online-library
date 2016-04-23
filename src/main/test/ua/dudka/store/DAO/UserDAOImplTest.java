@@ -23,12 +23,12 @@ public class UserDAOImplTest {
     @Test
     public void testAddUser() throws Exception {
         User user = new User("test", "test");
-        user.setRole(Role.USER);
+        user.setRole(Role.ROLE_USER);
             userDAO.addUser(user);
 
         User required = userDAO.getUser("test");
         assertEquals("test", required.getPassword());
-        assertEquals(Role.USER, required.getRole());
+        assertEquals(Role.ROLE_USER, required.getRole());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class UserDAOImplTest {
         User user = userDAO.getUser("admin");
         assertEquals("admin", user.getLogin());
         assertEquals("password", user.getPassword());
-        assertEquals(Role.USER, user.getRole());
+        assertEquals(Role.ROLE_USER, user.getRole());
 
     }
 

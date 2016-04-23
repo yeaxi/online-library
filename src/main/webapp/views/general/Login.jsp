@@ -30,9 +30,11 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"><br>
 
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
                 <input type="submit" name="submit" value="Log in"><br>
 
-                <c:if test="${param.error=='invalidLoginPassword'}">
+                <c:if test="${param.error!=null}">
                     <p style="color:darkred;"> Invalid login or password. Please check and try again</p>
                 </c:if>
 

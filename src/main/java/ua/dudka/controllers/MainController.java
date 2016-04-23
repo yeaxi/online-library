@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.dudka.beans.Book;
+import ua.dudka.managers.MessageManager;
 import ua.dudka.store.DAO.Factory;
 
 import java.util.ArrayList;
@@ -16,8 +17,7 @@ import java.util.List;
  * Created by RASTA on 19.04.2016.
  */
 @Controller
-@RequestMapping("/general")
-public class BookController {
+public class MainController {
     @Autowired
     private Factory factory;
 
@@ -28,7 +28,18 @@ public class BookController {
         return "/general/Main";
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage() {
+        return "/general/Login";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signUpPage() {
+        return "/general/SignUp";
+    }
+
+    @RequestMapping(value = "/aboutBook", method = RequestMethod.GET)
     public String aboutBook(@RequestParam("book") String book, ModelMap model) {
         model.addAttribute("book", factory.bookDAO.getBook(book));
         return "/general/AboutBook";
@@ -50,7 +61,12 @@ public class BookController {
             default:
                 list = new ArrayList<>();
         }
-        map.addAttribute("result", list);
+        if (list.isEmpty()) {
+            map.addAttribute("searchMessage", MessageManager.getProperty("message.search.nothing"));
+        } else {
+            map.addAttribute("searchMessage", MessageManager.getProperty("message.search.success"));
+        }
+        map.addAttribute("searchResult", list);
         return "/general/Main";
     }
 

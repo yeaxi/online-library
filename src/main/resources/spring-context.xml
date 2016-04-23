@@ -37,6 +37,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+
     <context:annotation-config/>
     <context:component-scan base-package="ua.dudka"/>
     <tx:annotation-driven/>

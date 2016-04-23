@@ -4,6 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by RASTA on 20.04.2016.
@@ -12,6 +13,15 @@ import java.security.MessageDigest;
 public class PasswordHelper implements PasswordEncoder {
 
     private MessageDigest md;
+
+    public PasswordHelper() {
+        try {
+            md = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace(); // TODO: 21.04.2016 add logger
+
+        }
+    }
 
     @Override
     public String encode(CharSequence rawPassword) {
@@ -36,6 +46,6 @@ public class PasswordHelper implements PasswordEncoder {
 
     @Override
     public boolean matches(CharSequence rawPassword, String encodedPassword) {
-        return rawPassword.equals(encodedPassword);
+        return encode(rawPassword).equals(encodedPassword);
     }
 }

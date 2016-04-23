@@ -78,6 +78,11 @@ public class User implements Serializable, UserDetails {
     }
 
     @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
         return true;
     }
@@ -105,9 +110,6 @@ public class User implements Serializable, UserDetails {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;

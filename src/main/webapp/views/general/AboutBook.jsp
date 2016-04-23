@@ -61,7 +61,7 @@
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-            <a href="${pageContext.servletContext.contextPath}/book/showAll">Main</a><br>
+            <a href="${pageContext.servletContext.contextPath}/showAll">Main</a><br>
             <c:set var="isLogIn" scope="session" value="${isLogIn}"/>
             <c:if test="${isLogIn}">
                 <c:set var="isAdmin" scope="session" value="${isAdmin}"/>
@@ -70,13 +70,13 @@
                 </c:if>
 
                 <c:set var="login" scope="session" value="${login}"/>
-                <a href="${pageContext.servletContext.contextPath}/controller?command=AboutUser&login=${login}">My
+                <a href="${pageContext.servletContext.contextPath}/user/profile">My
                     books</a><br>
             </c:if>
 
             <c:if test="${!isLogIn}">
-                <a href="${pageContext.servletContext.contextPath}/views/book/Login.jsp">Log in</a> <br>
-                <a href="${pageContext.servletContext.contextPath}/views/book/SignUp.jsp">Sign up</a><br>
+                <a href="${pageContext.servletContext.contextPath}/login">Log in</a> <br>
+                <a href="${pageContext.servletContext.contextPath}/signup">Sign up</a><br>
             </c:if>
         </div>
     </div>

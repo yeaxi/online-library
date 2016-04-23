@@ -16,6 +16,7 @@
             classpath:spring-security.xml
         </param-value>
     </context-param>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -35,7 +36,7 @@
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!--END: Spring Web-->
@@ -52,18 +53,15 @@
     </filter-mapping>
     <!--END: Spring Security-->
 
-    <error-page>
+    <!--<error-page>
         <error-id>404</error-id>
         <location>/views/ErrorPage.jsp</location>
     </error-page>
-    <error-page>
-        <exception-type>java.lang.RuntimeException</exception-type>
-        <location>/views/ErrorPage.jsp</location>
-    </error-page>
+
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/views/ErrorPage.jsp</location>
-    </error-page>
+    </error-page>-->
 
 
     <session-config>

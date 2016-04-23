@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.dudka.beans.User;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by RASTA on 15.03.2016.
@@ -35,12 +36,14 @@ class UserDAOImpl implements UserDAO {
 
 
     public User getUser(String login) {
-        return (User) template.find("from User as u where u.login=?", login).get(0);
+        List<?> objects = template.find("from User as u where u.login=?", login);
+        return objects.isEmpty() ? null : (User) objects.get(0);
     }
 
     @Override
     public User findByAuth(String login, String pass) {
-        return (User) template.find("from User  as u where  u.login=? and  u.password =?", login, pass).get(0);
+        List<?> objects = template.find("from User  as u where  u.login=? and  u.password =?", login, pass);
+        return objects.isEmpty() ? null : (User) objects.get(0);
     }
 
     @Transactional
