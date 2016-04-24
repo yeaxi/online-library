@@ -18,29 +18,37 @@
 
         <div align="center" id="header"
              style="background: #ccc; height: auto;  font-size:xx-large; font-weight: 300;">
-            Admin page
+            Adding books
         </div>
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
-            <c:forEach var="user" items="${users}" varStatus="status">
-                login:${user.login}<br>
-                password:${user.password}<br>
-                role: ${user.role}<br>
-                <a href="${pageContext.servletContext.contextPath}/admin/removeUser?login=${user.login}">Delete user</a>
-                <br>
-                <hr>
-            </c:forEach>
+            <jsp:useBean id="book" class="ua.dudka.beans.Book" scope="session"/>
+            <form action="${pageContext.servletContext.contextPath}/new" method="post" enctype="multipart/form-data">
+                <label for="name">BookName:</label>
+                <input type="text" id="name" name="name"><br>
 
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author"><br>
+
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre"><br>
+
+                <label for="desc">Description:</label>
+                <textarea id="desc" name="description"></textarea><br>
+
+                <label for="file">Choose file:</label>
+                <input id="file" type="file" name="file">
+
+                <input type="submit" name="submit" value="Add book"><br>
+            </form>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-            <a href="${pageContext.servletContext.contextPath}/views/admin/AddBook.jsp">Add books</a><br>
 
             <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
 
             <security:authorize access="Authenticated">
-                <a href="${pageContext.servletContext.contextPath}/user/profile">My
-                    profile</a><br>
+                <a href="${pageContext.servletContext.contextPath}/user/profile">My profile</a><br>
                 <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
             </security:authorize>
 

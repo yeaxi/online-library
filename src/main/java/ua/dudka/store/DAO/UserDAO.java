@@ -22,4 +22,6 @@ public interface UserDAO {
     Collection<User> getAllUsers();
 
     boolean contains(String login);
+
+    void deleteUser(User user);
 }

@@ -1,9 +1,10 @@
+<%@ page language="java" pageEncoding="UTF-8" session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: RASTA
-  Date: 19.04.2016
-  Time: 11:57
+  Date: 14.03.2016
+  Time: 12:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,24 +24,38 @@
 
             <div id="info" style="width: 100%">
                 <jsp:useBean id="user" class="ua.dudka.beans.User" scope="session"/>
-                <h4>${user.name} ${user.surname}</h4>
-                <h5>Age: ${user.age}</h5>
-                <h5>Sex: ${user.sex}</h5>
-                <h5>Email: ${user.email}</h5>
+
+
+                <h5>${user.name} ${user.surname}</h5>
+
+                <h5>Login: ${user.login}</h5>
+
+                <c:if test="${user.age!=0}">
+                    <h5>Age: ${user.age}</h5>
+                </c:if>
+
+                <c:if test="${user.sex}">
+                    <h5>Sex: ${user.sex}</h5>
+                </c:if>
+
+                <c:if test="${user.email}">
+                    <h5>Email: ${user.email}</h5>
+                </c:if>
                 <hr>
-                <a href="/controller?command=userEdit&login=${user.login}">Edit</a>
+
+
             </div>
 
             <c:forEach items="${user.books}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/controller?command=AboutBook&bookName=${book}">${book}</a>
+                <a href="${pageContext.servletContext.contextPath}/aboutBook?bookName=${book.name}">${book}</a>
                 <hr>
             </c:forEach>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-
-            <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
-            <a href="${pageContext.servletContext.contextPath}/controller?command=Logout">Log out</a><br>
+            <a href="${pageContext.servletContext.contextPath}/edit">Edit profile</a><br>
+            <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
+            <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
 
         </div>
     </div>

@@ -30,7 +30,7 @@ public class Book implements Serializable, Comparable<Book> {
     @Column(name = "file")
     private byte[] file;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "books")
+    @ManyToMany(cascade = CascadeType.DETACH, mappedBy = "books")
     private Set<User> users;
 
     public Book(String name, String author, String genre) {

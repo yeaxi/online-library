@@ -18,12 +18,13 @@
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
 
-            <form action="${pageContext.servletContext.contextPath}/controller" method="POST">
-                <input type="hidden" name="command" value="SignUp"/>
+            <form action="${pageContext.servletContext.contextPath}/new" method="POST">
                 <label for="login">Enter your login:</label>
                 <input type="text" id="login" name="login"><br>
+
                 <label for="password">Enter your password:</label>
                 <input type="password" id="password" name="password"><br>
+
                 <input type="submit" name="submit" value="Sign up"><br>
 
                 <p style="color:darkred">${errorSignUp}</p>
@@ -34,8 +35,8 @@
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
-            <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
-            <a href="${pageContext.servletContext.contextPath}/views/book/Login.jsp">Log in</a>
+            <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
+            <a href="${pageContext.servletContext.contextPath}/login">Log in</a>
         </div>
     </div>
 </div>

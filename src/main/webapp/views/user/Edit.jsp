@@ -24,24 +24,42 @@
 
             <div id="info" style="width: 100%">
                 <jsp:useBean id="user" class="ua.dudka.beans.User" scope="session"/>
-                <h4>${user.name} ${user.surname}</h4>
-                <h5>Age: ${user.age}</h5>
-                <h5>Sex: ${user.sex}</h5>
-                <h5>Email: ${user.email}</h5>
-                <hr>
-                <a hidden="hidden" href="/controller?command=userEdit&login=${user.login}">Edit</a>
+
+                <form action="${pageContext.servletContext.contextPath}/user/edit" method="POST">
+
+                    <label for="name">Enter your login:</label>
+                    <input type="text" id="name" name="login"><br>
+
+                    <label for="surname">Enter your login:</label>
+                    <input type="text" id="surname" name="login"><br>
+
+                    <label for="age">Enter your login:</label>
+                    <input type="text" id="age" name="login"><br>
+
+                    <label for="sex">Enter your login:</label>
+                    <input type="text" id="sex" name="login"><br>
+
+                    <label for="password">Enter your password:</label>
+                    <input type="password" id="password" name="password"><br>
+
+                    <input type="submit" name="submit" value="Sign up"><br>
+
+                    <p style="color:darkred">${errorSignUp}</p>
+
+
+                </form>
             </div>
 
             <c:forEach items="${user.books}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/controller?command=AboutBook&bookName=${book}">${book}</a>
+                <a href="${pageContext.servletContext.contextPath}/aboutBook?bookName=${book.name}">${book}</a>
                 <hr>
             </c:forEach>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
-            <a href="${pageContext.servletContext.contextPath}/controller?command=ShowBooks">Main</a><br>
-            <a href="${pageContext.servletContext.contextPath}/controller?command=Logout">Log out</a><br>
+            <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
+            <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
 
         </div>
     </div>

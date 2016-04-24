@@ -21,7 +21,7 @@
         </div>
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
-            <form action="login" method="POST">
+            <form action="/j_spring_security_check" method="POST">
                 <input type="hidden" name="_spring_security_remember_me" value="true"/>
 
                 <label for="login">Login</label>
@@ -42,7 +42,7 @@
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
-            <a href="${pageContext.servletContext.contextPath}/general/showAll">Main</a>
+            <a href="${pageContext.servletContext.contextPath}/main">Main</a>
         </div>
     </div>
 </div>

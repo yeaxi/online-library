@@ -26,15 +26,17 @@ class UserDAOImpl implements UserDAO {
         template.save(user);
     }
 
+    @Override
     public Collection<User> getAllUsers() {
         return template.loadAll(User.class);
     }
 
+    @Override
     public User getUser(int id) {
         return template.load(User.class, id);
     }
 
-
+    @Override
     public User getUser(String login) {
         List<?> objects = template.find("from User as u where u.login=?", login);
         return objects.isEmpty() ? null : (User) objects.get(0);
@@ -46,11 +48,19 @@ class UserDAOImpl implements UserDAO {
         return objects.isEmpty() ? null : (User) objects.get(0);
     }
 
+    @Override
     @Transactional
     public void updateUser(User user) {
         template.update(user);
     }
 
+    @Override
+    @Transactional
+    public void deleteUser(User user) {
+        template.delete(user);
+    }
+
+    @Override
     public boolean contains(String login) {
         return getUser(login) != null;
     }
