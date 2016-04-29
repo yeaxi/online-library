@@ -1,9 +1,6 @@
 package ua.dudka.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +14,6 @@ import ua.dudka.managers.MessageManager;
 import ua.dudka.service.PasswordHelper;
 import ua.dudka.store.DAO.Factory;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +22,7 @@ import java.util.List;
  */
 @Controller
 public class MainController {
+
     @Autowired
     private Factory factory;
 

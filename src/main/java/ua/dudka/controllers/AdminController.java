@@ -17,6 +17,7 @@ import ua.dudka.store.DAO.Factory;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
     @Autowired
     private Factory factory;
 
@@ -39,7 +40,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/removeBook", method = RequestMethod.GET)
-    public String removeBook(@RequestParam String bookName) {
+    public String removeBook(@RequestParam() String bookName) {
         Book book = factory.bookDAO.getBook(bookName);
         factory.bookDAO.deleteBook(book);
         return "redirect:/main";
