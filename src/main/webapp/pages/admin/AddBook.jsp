@@ -22,8 +22,8 @@
         </div>
 
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
-            <jsp:useBean id="book" class="ua.dudka.beans.Book" scope="session"/>
-            <form action="${pageContext.servletContext.contextPath}/new" method="post" enctype="multipart/form-data">
+            <form action="/admin/addBook" method="post"
+                  enctype="multipart/form-data">
                 <label for="name">BookName:</label>
                 <input type="text" id="name" name="name"><br>
 
@@ -39,17 +39,17 @@
                 <label for="file">Choose file:</label>
                 <input id="file" type="file" name="file">
 
-                <input type="submit" name="submit" value="Add book"><br>
+                <input type="submit" name="submit" value="Upload"><br>
             </form>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
-            <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
+            <a href="/main">Main</a><br>
 
             <security:authorize access="authenticated">
-                <a href="${pageContext.servletContext.contextPath}/user/profile">My profile</a><br>
-                <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
+                <a href="/user/profile">My profile</a><br>
+                <a href="/j_spring_security_logout">Log out</a><br>
             </security:authorize>
 
         </div>
