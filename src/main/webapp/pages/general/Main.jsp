@@ -82,7 +82,7 @@
     <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
         <security:authorize access="hasRole('ROLE_ADMIN')">
-            <a href="${pageContext.servletContext.contextPath}/views/admin/AddBook.jsp">Add books</a><br>
+            <a href="${pageContext.servletContext.contextPath}/pages/admin/AddBook.jsp">Add books</a><br>
             <a href="${pageContext.servletContext.contextPath}/admin/users">Admin page</a><br>
         </security:authorize>
 

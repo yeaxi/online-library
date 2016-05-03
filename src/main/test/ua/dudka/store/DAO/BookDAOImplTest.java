@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  * Created by RASTA on 15.03.2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration()
+@ContextConfiguration(locations = "/spring-context.xml")
 public class BookDAOImplTest {
 
     @Autowired

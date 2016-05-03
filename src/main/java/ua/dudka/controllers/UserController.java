@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.dudka.beans.Book;
 import ua.dudka.beans.User;
-import ua.dudka.managers.MessageManager;
 import ua.dudka.store.DAO.Factory;
 
 import javax.servlet.ServletOutputStream;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import static org.apache.commons.io.FileUtils.getFile;
 
 /**
  * Created by RASTA on 19.04.2016.
@@ -39,10 +37,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editUser(@ModelAttribute User user, ModelMap map) {
-        factory.userDAO.updateUser(user);
-        map.addAttribute("user", user);
-        return "/user/Profile";
+    public String editUser(@ModelAttribute User user) {
+        User current = factory.userDAO.getUser(getPrincipal());
+        current.setName(user.getName());
+        current.setSurname(user.getSurname());
+        current.setAge(user.getAge());
+        current.setSex(user.getSex());
+        factory.userDAO.updateUser(current);
+        return "redirect:/user/profile";
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.GET)
@@ -69,8 +71,7 @@ public class UserController {
         Book book = factory.bookDAO.getBook(bookName);
         byte[] bytes = book.getFile();
         response.setContentType("application/pdf");
-        response.setHeader("Content-disposition", "attachment; filename" + bookName);
-
+        response.setHeader("Content-disposition", "attachment; filename " + bookName);
 
         try {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -80,10 +81,11 @@ public class UserController {
             stream.writeTo(outputStream);
             outputStream.flush();
             outputStream.flush();
-        } catch (IOException e) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            //// TODO: 03.05.2016 add logger
         }
-        return "/general/Main";
+        return "redirect:/main";
     }
 
 

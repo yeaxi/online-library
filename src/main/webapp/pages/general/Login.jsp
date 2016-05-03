@@ -25,10 +25,10 @@
                 <input type="hidden" name="_spring_security_remember_me" value="true"/>
 
                 <label for="login">Login</label>
-                <input type="text" id="login" name="login"><br>
+                <input type="text" id="login" name="login" required="required"><br>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br>
+                <input type="password" id="password" name="password" required="required"><br>
 
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 

@@ -23,8 +23,7 @@
         <div id="content" style="width:85%; height: 100%; background: #eee; float:left">
 
             <div id="info" style="width: 100%">
-                <jsp:useBean id="user" class="ua.dudka.beans.User" scope="session"/>
-
+                <h1>About me:</h1>
 
                 <h5>${user.name} ${user.surname}</h5>
 
@@ -46,8 +45,9 @@
 
             </div>
 
+            <h4>My books:</h4>
             <c:forEach items="${user.books}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/aboutBook?bookName=${book.name}">${book}</a>
+                <a href="${pageContext.servletContext.contextPath}/aboutBook?book=${book.name}">${book}</a>
                 <hr>
             </c:forEach>
         </div>

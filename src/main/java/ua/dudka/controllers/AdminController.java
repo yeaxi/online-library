@@ -11,6 +11,8 @@ import ua.dudka.beans.Book;
 import ua.dudka.beans.User;
 import ua.dudka.store.DAO.Factory;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by RASTA on 19.04.2016.
  */
@@ -21,8 +23,14 @@ public class AdminController {
     @Autowired
     private Factory factory;
 
+
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
-    public String addBook(@ModelAttribute Book book) {
+    public String addBook(HttpServletRequest request) {
+        String bookName = request.getParameter("name");
+        String author = request.getParameter("author");
+        String genre = request.getParameter("genre");
+        String desc = request.getParameter("description");//// TODO: 03.05.2016  
+        Book book = new Book();
         factory.bookDAO.addBook(book);
         return "redirect:/main";
     }

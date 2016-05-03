@@ -27,38 +27,33 @@
 
                 <form action="${pageContext.servletContext.contextPath}/user/edit" method="POST">
 
-                    <label for="name">Enter your login:</label>
-                    <input type="text" id="name" name="login"><br>
+                    <label for="name">Enter your name:</label>
+                    <input type="text" id="name" name="name" value="${user.name}"><br>
 
-                    <label for="surname">Enter your login:</label>
-                    <input type="text" id="surname" name="login"><br>
+                    <label for="surname">Enter your surname:</label>
+                    <input type="text" id="surname" name="surname" value="${user.surname}"><br>
 
-                    <label for="age">Enter your login:</label>
-                    <input type="text" id="age" name="login"><br>
+                    <label for="age">Enter your age:</label>
+                    <input type="text" id="age" name="age" value="${user.age}"><br>
 
-                    <label for="sex">Enter your login:</label>
-                    <input type="text" id="sex" name="login"><br>
+                    <label for="sex">Enter your sex:</label>
+                    <input type="text" id="sex" name="sex" value="${user.sex}"><br>
 
-                    <label for="password">Enter your password:</label>
-                    <input type="password" id="password" name="password"><br>
-
-                    <input type="submit" name="submit" value="Sign up"><br>
+                    <input type="submit" name="submit" value="Confirm"><br>
 
                     <p style="color:darkred">${errorSignUp}</p>
-
 
                 </form>
             </div>
 
-            <c:forEach items="${user.books}" var="book" varStatus="status">
-                <a href="${pageContext.servletContext.contextPath}/aboutBook?bookName=${book.name}">${book}</a>
-                <hr>
-            </c:forEach>
         </div>
 
         <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
             <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
+
+            <a href="${pageContext.servletContext.contextPath}/user/profile">My profile</a><br>
+
             <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
 
         </div>

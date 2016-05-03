@@ -20,10 +20,10 @@
 
             <form action="${pageContext.servletContext.contextPath}/new" method="POST">
                 <label for="login">Enter your login:</label>
-                <input type="text" id="login" name="login"><br>
+                <input type="text" id="login" name="login" required="required"><br>
 
                 <label for="password">Enter your password:</label>
-                <input type="password" id="password" name="password"><br>
+                <input type="password" id="password" name="password" required="required"><br>
 
                 <input type="submit" name="submit" value="Sign up"><br>
 

@@ -47,7 +47,7 @@
 
             <a href="${pageContext.servletContext.contextPath}/main">Main</a><br>
 
-            <security:authorize access="Authenticated">
+            <security:authorize access="authenticated">
                 <a href="${pageContext.servletContext.contextPath}/user/profile">My profile</a><br>
                 <a href="${pageContext.servletContext.contextPath}/j_spring_security_logout">Log out</a><br>
             </security:authorize>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+                               http://www.springframework.org/schema/beans
+                               http://www.springframework.org/schema/beans/spring-beans.xsd
+                               http://www.springframework.org/schema/security
+                               http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+    <http auto-config="true" use-expressions="true">
+        <!--access-denied-page="/pages/access_denied.jsp"/>-->
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/user/**" access="authenticated"/>
+
+
+        <form-login
+                login-page="/pages/general/Login.jsp"
+                login-processing-url="/j_spring_security_check"
+                default-target-url="/main"
+                username-parameter="login"
+                password-parameter="password"
+                always-use-default-target="true"
+                authentication-failure-url="/pages/general/Login.jsp?error=invalidLoginPassword"/>
+
+        <csrf disabled="true"/>
+
+        <logout logout-success-url="/main" logout-url="/j_spring_security_logout"/>
+        <remember-me user-service-ref="userService" key="key"/>
+    </http>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userService">
+            <password-encoder ref="passwordHelper"/>
+        </authentication-provider>
+    </authentication-manager>
+
+
+    <beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+        <beans:property name="rolePrefix" value=""/>
+    </beans:bean>
+</beans:beans>
