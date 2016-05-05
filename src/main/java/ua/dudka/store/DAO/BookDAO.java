@@ -1,9 +1,8 @@
 package ua.dudka.store.DAO;
 
-import ua.dudka.models.Book;
-import ua.dudka.models.User;
+import ua.dudka.beans.Book;
+import ua.dudka.beans.User;
 
-import java.sql.SQLException;
 import java.util.Collection;
 
 /**

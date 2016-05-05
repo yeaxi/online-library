@@ -1,6 +1,6 @@
 package ua.dudka.store.DAO;
 
-import ua.dudka.models.User;
+import ua.dudka.beans.User;
 
 import java.util.Collection;
 
@@ -17,7 +17,11 @@ public interface UserDAO {
 
     User getUser(String login);
 
+    User findByAuth(String login, String pass);
+
     Collection<User> getAllUsers();
 
     boolean contains(String login);
+
+    void deleteUser(User user);
 }

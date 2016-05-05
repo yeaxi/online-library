@@ -8,7 +8,6 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost/library</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
-
         <property name="hibernate.c3p0.min_size">7</property>
         <property name="hibernate.c3p0.max_size">53</property>
         <property name="hibernate.c3p0.timeout">100</property>
@@ -16,12 +15,12 @@
         <property name="hibernate.c3p0.idle_test_period">1000</property>
         <property name="hibernate.c3p0.validate">true</property>
 
-        <property name="connection.pool_size">10</property>
+        <property name="connection.pool_size">20</property>
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 
-        <mapping class="ua.dudka.models.Book"/>
-        <mapping class="ua.dudka.models.User"/>
+        <mapping class="ua.dudka.beans.Book"/>
+        <mapping class="ua.dudka.beans.User"/>
 
     </session-factory>
 </hibernate-configuration>
