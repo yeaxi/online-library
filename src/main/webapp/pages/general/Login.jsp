@@ -30,11 +30,12 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required="required"><br>
 
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <label for="remember-me">Remember me</label>
+                <input type="checkbox" id="remember-me" name="_spring_security_remember_me"/>
 
                 <input type="submit" name="submit" value="Log in"><br>
 
-                <c:if test="${param.error!=null}">
+                <c:if test="${not empty param.error}">
                     <p style="color:darkred;"> Invalid login or password. Please check and try again</p>
                 </c:if>
 

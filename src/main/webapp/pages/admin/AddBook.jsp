@@ -34,7 +34,7 @@
                 <input type="text" id="genre" name="genre"><br>
 
                 <label for="desc">Description:</label>
-                <textarea id="desc" name="description"></textarea><br>
+                <textarea id="desc" name="desc"></textarea><br>
 
                 <label for="file">Choose file:</label>
                 <input id="file" type="file" name="file">

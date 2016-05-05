@@ -22,11 +22,12 @@
                 password-parameter="password"
                 always-use-default-target="true"
                 authentication-failure-url="/pages/general/Login.jsp?error=invalidLoginPassword"/>
-
         <csrf disabled="true"/>
 
         <logout logout-success-url="/main" logout-url="/j_spring_security_logout"/>
-        <remember-me user-service-ref="userService" key="key"/>
+
+        <!--<remember-me user-service-ref="userService" key="key"/>-->
+        <remember-me/>
     </http>
 
     <authentication-manager>

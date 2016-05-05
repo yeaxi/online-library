@@ -1,6 +1,5 @@
 package ua.dudka.controllers;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,11 +12,7 @@ import ua.dudka.beans.Book;
 import ua.dudka.beans.User;
 import ua.dudka.store.DAO.Factory;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by RASTA on 19.04.2016.
@@ -58,9 +53,10 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
-    public String uploadFile(@RequestParam String book, @RequestParam String author, @RequestParam String genre, @RequestParam MultipartFile file) {
+    public String uploadFile(@RequestParam String name, @RequestParam String author, @RequestParam String genre, @RequestParam String desc, @RequestParam MultipartFile file) {
 
-        Book current = new Book(book, author, genre);
+        Book current = new Book(name, author, genre);
+        current.setDescription(desc);
         try {
             current.setFile(file.getBytes());
         } catch (IOException e) {

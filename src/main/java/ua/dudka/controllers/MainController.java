@@ -29,6 +29,10 @@ public class MainController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String showBooks(ModelMap model) {
         model.addAttribute("books", factory.bookDAO.getBooks());
+        String principal = UserController.getPrincipal();
+        if (!principal.equals("")) {
+            model.addAttribute("usersBooks", factory.userDAO.getUser(principal).getBooks());
+        }
         return "/general/Main";
     }
 

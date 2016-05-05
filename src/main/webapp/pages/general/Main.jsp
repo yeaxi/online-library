@@ -41,7 +41,6 @@
         <c:set var="books" scope="application" value="${books}"/>
 
         <security:authorize access="authenticated">
-            <security:authentication property="principal.books" var="usersBooks"/>
         </security:authorize>
         <c:forEach items="${books}" var="book" varStatus="status">
             Name: ${book.name}<br>
@@ -82,19 +81,18 @@
     <div id="navigation" style="width:15%; height: 100%; background-color: #dddddd; float: right;">
 
         <security:authorize access="hasRole('ROLE_ADMIN')">
-            <a href="${pageContext.servletContext.contextPath}/pages/admin/AddBook.jsp">Add books</a><br>
-            <a href="${pageContext.servletContext.contextPath}/admin/users">Admin page</a><br>
+            <a href="/pages/admin/AddBook.jsp">Add books</a><br>
+            <a href="/admin/users">Admin page</a><br>
         </security:authorize>
 
         <security:authorize access="authenticated">
-            <a href="${pageContext.servletContext.contextPath}/user/profile">My
-                profile</a><br>
+            <a href="/user/profile">My profile</a><br>
             <a href="<c:url value="/j_spring_security_logout"/> ">Log out</a><br>
         </security:authorize>
 
         <security:authorize access="anonymous">
-            <a href="${pageContext.servletContext.contextPath}/login">Log in</a> <br>
-            <a href="${pageContext.servletContext.contextPath}/signup">Sign up</a><br>
+            <a href="/login">Log in</a> <br>
+            <a href="/signup">Sign up</a><br>
         </security:authorize>
     </div>
 </div>

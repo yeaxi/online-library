@@ -92,7 +92,9 @@ public class UserController {
     public static String getPrincipal() {
         String login;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails) {
+        if (principal.equals("anonymousUser")) {
+            return "";
+        } else if (principal instanceof UserDetails) {
             login = ((UserDetails) principal).getUsername();
         } else {
             login = principal.toString();
